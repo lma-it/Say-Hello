@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--    Область с настройками, в данном случае присвоил переменной filePattern шаблон для построения, потому что он используется часто-->
+    <property name="filePattern" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <!--    Область с включениями сторонних файлов для аппендеров, потому что если их разместить тут, то будет много дублирующегося кода.-->
+    <include resource="appenders/hibernate-appender.xml"/>
+    <include resource="appenders/app-appender.xml"/>
+    <include resource="appenders/manager-appender.xml"/>
+
+
+    <!-- Уровень логирования по умолчанию -->
+    <!--    Выполняет перенаправление для всех остальных аппендеров в зависимости от его уровня-->
+    <root level="INFO">
+        <appender-ref ref="HIBERNATE-INFO-FILE-ROLLING"/>
+        <appender-ref ref="HIBERNATE-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="HIBERNATE-ERROR-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-INFO-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-ERROR-FILE-ROLLING"/>
+        <appender-ref ref="FILE-ROLLING"/>
+    </root>
+
+    <!-- Логирование Hibernate -->
+    <logger name="org.hibernate" level="DEBUG" additivity="false">
+        <appender-ref ref="HIBERNATE-INFO-FILE-ROLLING"/>
+        <appender-ref ref="HIBERNATE-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="HIBERNATE-ERROR-FILE-ROLLING"/>
+    </logger>
+
+    <!--    Данный логгер добавлен, для игнорирования логов от SessionFactoryImpl так как там логи очень большие.-->
+    <logger name="org.hibernate.internal.SessionFactoryImpl" level="OFF" additivity="false"/>
+
+    <logger name="server.manager.ClientManager" level="DEBUG" additivity="false">
+        <appender-ref ref="MANAGER-INFO-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-ERROR-FILE-ROLLING"/>
+    </logger>
+
+    <logger name="server.Server" level="DEBUG" additivity="false">
+        <appender-ref ref="MANAGER-INFO-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="MANAGER-ERROR-FILE-ROLLING"/>
+    </logger>
+
+    <logger name="server.repository.impl.ClientRepositoryImpl" level="DEBUG" additivity="false">
+        <appender-ref ref="HIBERNATE-INFO-FILE-ROLLING"/>
+        <appender-ref ref="HIBERNATE-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="HIBERNATE-ERROR-FILE-ROLLING"/>
+    </logger>
+
+
+    <logger name="ROOT" level="ERROR" additivity="false">
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>
+
+
+
+</configuration>

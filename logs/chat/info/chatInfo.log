@@ -1,0 +1,8 @@
+2025-01-08 00:39:52 [main] INFO  org.client.view.ClientView - Данные о сокете из конструктора: isConnected: true, Порт: 1500
+2025-01-08 00:39:56 [AWT-EventQueue-0] INFO  org.client.view.ClientView - Вошли в метод создания нового аккаунта.
+2025-01-08 00:39:56 [AWT-EventQueue-0] INFO  org.client.view.ClientView - Текущая видимость authorization:false
+2025-01-08 00:39:56 [AWT-EventQueue-0] INFO  org.client.view.ClientView - Выставляем видимость поля authorization в значение true: true
+2025-01-08 00:39:56 [AWT-EventQueue-0] INFO  org.client.view.ClientView - Данные отправлены, получение logins.
+2025-01-08 00:39:56 [AWT-EventQueue-0] INFO  org.client.view.ClientView - Данные строки login: 
+2025-01-08 00:41:44 [main] INFO  org.client.view.ClientView - Данные о сокете из конструктора: isConnected: true, Порт: 1500
+2025-01-08 00:43:52 [main] INFO  org.client.view.ClientView - Данные о сокете из конструктора: isConnected: true, Порт: 1500

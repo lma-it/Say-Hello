@@ -1,0 +1,64 @@
+<included>
+    <appender name="HIBERNATE-INFO-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/hibernate/info/hibernateInfo.log</file> <!-- Путь к файлу логов -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/hibernate/info/hibernateInfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>2MB</maxFileSize> <!-- Максимальный размер одного файла -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий лимит на размер архивных файлов -->
+            <maxHistory>60</maxHistory> <!-- Хранить логи в течение 60 дней -->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${filePattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    <appender name="HIBERNATE-DEBUG-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/hibernate/debug/hibernateDebug.log</file> <!-- Путь к файлу логов -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/hibernate/debug/hibernateDebug.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize> <!-- Максимальный размер одного файла -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий лимит на размер архивных файлов -->
+            <maxHistory>60</maxHistory> <!-- Хранить логи в течение 60 дней -->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${filePattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    <appender name="HIBERNATE-ERROR-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/hibernate/error/hibernateError.log</file> <!-- Путь к файлу логов -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/hibernate/error/hibernateError.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize> <!-- Максимальный размер одного файла -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий лимит на размер архивных файлов -->
+            <maxHistory>60</maxHistory> <!-- Хранить логи в течение 60 дней -->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${filePattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+</included>

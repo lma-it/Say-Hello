@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--    Область с настройками, в данном случае присвоил переменной filePattern шаблон для построения, потому что он используется часто-->
+    <property name="filePattern" value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <!--    Область с включениями сторонних файлов для аппендеров, потому что если их разместить тут, то будет много дублирующегося кода.-->
+    <include resource="appenders/chat-appender.xml"/>
+    <include resource="appenders/app-appender.xml"/>
+
+
+    <!-- Уровень логирования по умолчанию -->
+    <!--    Выполняет перенаправление для всех остальных аппендеров в зависимости от его уровня-->
+    <root level="INFO">
+        <appender-ref ref="CHAT-INFO-FILE-ROLLING"/>
+        <appender-ref ref="CHAT-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="CHAT-ERROR-FILE-ROLLING"/>
+        <appender-ref ref="FILE-ROLLING"/>
+    </root>
+
+    <logger name="org.client.view.ClientView" level="DEBUG" additivity="false">
+        <appender-ref ref="CHAT-INFO-FILE-ROLLING"/>
+        <appender-ref ref="CHAT-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="CHAT-ERROR-FILE-ROLLING"/>
+    </logger>
+
+
+
+
+    <logger name="ROOT" level="ERROR" additivity="false">
+        <appender-ref ref="FILE-ROLLING"/>
+    </logger>
+
+
+
+</configuration>

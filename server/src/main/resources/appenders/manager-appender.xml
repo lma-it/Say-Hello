@@ -1,0 +1,64 @@
+<included>
+    <appender name="MANAGER-INFO-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/manager/info/managerInfo.log</file> <!-- Путь к файлу логов -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/manager/info/managerInfo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>2MB</maxFileSize> <!-- Максимальный размер одного файла -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий лимит на размер архивных файлов -->
+            <maxHistory>60</maxHistory> <!-- Хранить логи в течение 60 дней -->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${filePattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    <appender name="MANAGER-DEBUG-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/manager/debug/managerDebug.log</file> <!-- Путь к файлу логов -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/manager/debug/managerDebug.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize> <!-- Максимальный размер одного файла -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий лимит на размер архивных файлов -->
+            <maxHistory>60</maxHistory> <!-- Хранить логи в течение 60 дней -->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${filePattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    <appender name="MANAGER-ERROR-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/manager/error/managerError.log</file> <!-- Путь к файлу логов -->
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/manager/error/managerError.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize> <!-- Максимальный размер одного файла -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Общий лимит на размер архивных файлов -->
+            <maxHistory>60</maxHistory> <!-- Хранить логи в течение 60 дней -->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${filePattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+</included>
