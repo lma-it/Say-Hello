@@ -6,6 +6,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+// Подумать над структурой, потому что в данном случае у каждого пользователя свой глобальный чат
+// и он получает из базы данных только те сообщения, которые сам отправлял.
 @Getter
 @Setter
 @Entity
@@ -16,17 +18,23 @@ public class GlobalChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long globalId;
 
-    @Column(name = "clientId")
-    private Long clientId;
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    private Client client;
 
-    @Column(name = "global_messages")
-    private List<String> messages;
+    @OneToMany(mappedBy = "globalChat")
+    private List<GlobalMessage> messages;
 
-    public GlobalChat(){}
+    public GlobalChat() {}
 
-    public GlobalChat(Long id, List<String> messages){
-        this.clientId = id;
+    public GlobalChat(Client client, List<GlobalMessage> messages) {
+        this.client = client;
         this.messages = messages;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Id: %s, Список сообщений: %s", this.globalId, this.messages);
+    }
 }
+

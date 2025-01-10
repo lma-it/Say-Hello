@@ -5,13 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.slf4j.LoggerFactory;
-import server.model.Client;
-import server.model.GlobalChat;
-import server.model.PrivateChat;
-import server.repository.impl.ClientRepositoryImpl;
-import server.repository.impl.GlobalChatRepositoryImpl;
-import server.repository.impl.PrivateChatRepositoryImpl;
+import server.model.*;
+import server.repository.impl.*;
 import server.util.SessionService;
 
 import java.io.*;
@@ -30,7 +27,10 @@ public class ClientManager implements Runnable{
     private ClientRepositoryImpl clientRepository;
     private PrivateChatRepositoryImpl privateChatRepository;
     private GlobalChatRepositoryImpl globalChatRepository;
+    private PrivateMessageRepositoryImpl privateMessageRepository;
+    private GlobalMessageRepositoryImpl globalMessageRepository;
     private Client client;
+    private final SessionFactory sessionFactory;
 
     @Getter
     @Setter
@@ -48,7 +48,8 @@ public class ClientManager implements Runnable{
 
     public ClientManager(Socket socket){
         this.socket = socket;
-        Session session = SessionService.getSession(logger);
+        sessionFactory = SessionService.getSessionFactory(logger);
+        Session session = sessionFactory.openSession();
         try{
             logger.info("Состояние session: {}", session.getStatistics());
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -56,9 +57,11 @@ public class ClientManager implements Runnable{
             clientRepository = new ClientRepositoryImpl(session);
             privateChatRepository = new PrivateChatRepositoryImpl(session);
             globalChatRepository = new GlobalChatRepositoryImpl(session);
+            privateMessageRepository = new PrivateMessageRepositoryImpl(session);
+            globalMessageRepository = new GlobalMessageRepositoryImpl(session);
         }catch (IOException e){
             System.out.println(e.getMessage());
-            closeEverything(socket, bufferedWriter, bufferedReader);
+            closeEverything(this.socket, bufferedWriter, bufferedReader);
         }
 
     }
@@ -78,7 +81,6 @@ public class ClientManager implements Runnable{
                 closeEverything(socket, bufferedWriter, bufferedReader);
             }
         }
-
     }
 
     private void closeEverything(Object... args){
@@ -93,7 +95,6 @@ public class ClientManager implements Runnable{
                     }
                     logger.error("ERROR: Ошибка при попытке закрыть объект: {}. Причина: {}\nStackTrace: {}", obj, e.getMessage(), sb);
                 }
-
             }
         }
     }
@@ -116,11 +117,13 @@ public class ClientManager implements Runnable{
     private void broadcastMessageToClients(List<ClientManager> clients, String message){
         try{
             for(ClientManager client : clients){
-                if(!client.getUserName().equals(this.getUserName())){
-                    client.bufferedWriter.write(message);
-                    client.bufferedWriter.newLine();
-                    client.bufferedWriter.flush();
-                }
+                //Пока что просто закомментируем
+//                if(!client.getUserName().equals(this.getUserName())){
+//
+//                }
+                client.bufferedWriter.write(message);
+                client.bufferedWriter.newLine();
+                client.bufferedWriter.flush();
             }
         }catch (IOException e){
             System.out.println(e.getMessage());
@@ -128,12 +131,12 @@ public class ClientManager implements Runnable{
     }
 
 
-    private void messageFromClient(String message){
-        String[] user = message.split(":");
-        logger.info("Данные о user: {}", message);
-        switch (user[0]) {
+    private synchronized void messageFromClient(String message){
+        String[] requestFromUser = message.split(":");
+        logger.info("Данные о user: {}", Arrays.toString(requestFromUser));
+        switch (requestFromUser[0]) {
             case "logins" -> {
-                logger.info("Значение в user в case logins: {}", Arrays.toString(user));
+                logger.info("Значение в user в case logins: {}", Arrays.toString(requestFromUser));
                 StringBuilder sb = new StringBuilder();
                 sb.append("logins").append(":");
                 clientRepository.getAllEntities().forEach(client -> sb.append(client.getLogin()).append(":"));
@@ -141,70 +144,131 @@ public class ClientManager implements Runnable{
                 broadcastMessageToClient(this, String.valueOf(sb));
             }
             case "authorization" -> {
-                logger.info("Значение в user в case authorization: {}", Arrays.toString(user));
-                user = message.split(":");
-                login = user[1];
-                userName = user[2];
-                password = user[3];
-                status = user[4];
+                logger.info("Значение в user в case authorization: {}", Arrays.toString(requestFromUser));
+                requestFromUser = message.split(":");
+                login = requestFromUser[1];
+                userName = requestFromUser[2];
+                password = requestFromUser[3];
+                status = requestFromUser[4];
                 client = new Client(login, userName, password, status);
+                logger.debug("Сохраняем нового клиента в БД: {}", client.toString());
                 clientRepository.saveEntity(client);
+                client = clientRepository.getEntityByLoginAndPassword(login, password);
+                GlobalChat globalChat = new GlobalChat();
+                globalChat.setClient(client);
+                logger.info("Сохраняем новый общий чат для нового клиента: {}", globalChat);
+                globalChatRepository.saveEntity(globalChat);
+                PrivateChat privateChat = new PrivateChat();
+                privateChat.setClient(client);
+                logger.info("Сохраняем новый личный чат для нового клиента: {}", privateChat);
+                privateChatRepository.saveEntity(privateChat);
                 clients.add(this);
+                client.setGlobalChats((List.of(globalChat)));
+                client.setPrivateChats(List.of(privateChat));
+                clientRepository.updateEntity(client);
                 System.out.println("Новый клиент " + userName + " подключился к чату.");
+                broadcastMessageToClient(this, String.format("%sВы успешно зарегистрировались. Ваш логин: %s\nИмя: %s\nПароль: %s (не сообщайте пароль никому!)", "authorization", login, userName, password));
             }
             case "login" -> {
-                logger.info("Значение в user в case login: {}", Arrays.toString(user));
-                login = user[1];
-                password = user[2];
-                String slogin;
-                client = clientRepository.getEntityByLoginAndPassword(login, password);
+                logger.info("Значение в user в case login: {}", Arrays.toString(requestFromUser));
+                login = requestFromUser[1];
+                password = requestFromUser[2];
                 clients.add(this);
+                logger.info("Клиенты в списке clients: {}", clients);
+                client = clientRepository.getEntityByLoginAndPassword(login, password);
+                String id, name, status;
+                id = String.valueOf(client.getClientId());
+                name = client.getName();
+                status = client.getStatus();
+                String clientData = "login:" + id + ":" + login + ":" + name + ":" + password + ":" + status;
+                broadcastMessageToClient(this, clientData);
                 if (client != null) {
-                    List<String> globalHistory;
-                    globalHistory = globalChatRepository.getEntityById(client.getClientId()).getMessages();
-                    if (globalHistory != null) {
-                        broadcastMessageToClient(this, String.valueOf(globalHistory));
-                    } else {
-                        broadcastMessageToClient(this, "Добро пожаловать в чат.");
-                    }
-                    List<String> privateHistory;
-                    privateHistory = privateChatRepository.getEntityById(client.getClientId()).getMessages();
-                    if (privateHistory != null) {
-                        broadcastMessageToClient(this, String.valueOf(privateHistory));
-                    } else {
-                        broadcastMessageToClient(this, "Добро пожаловать в приватный чат.");
-                    }
-                    if (!client.getStatus().equals("Невидимка")) {
-                        broadcastMessageToClient(this,"Вы подключились в режиме невидимки.");
+                    GlobalChat globalHistory;
+                    globalHistory = globalChatRepository.getChatByClient(client);
+
+                    List<String> globalMessages = globalHistory.getMessages() != null ?
+                             globalHistory.getMessages().stream()
+                            .map(GlobalMessage::getMessage)
+                            .toList() : null;
+
+                    broadcastMessageToClient(this, "global:" + globalMessages);
+                    PrivateChat privateHistory;
+                    privateHistory = privateChatRepository.getChatByClient(client);
+
+                    List<String> privateMessages = privateHistory.getMessages() != null ?
+                            privateHistory.getMessages().stream()
+                            .map(PrivateMessage::getMessage)
+                            .toList() : null;
+                    broadcastMessageToClient(this, "private:" + privateMessages);
+
+
+                    if (client.getStatus().equals("Невидимка")) {
+                        broadcastMessageToClient(this,"private:Вы подключились в режиме невидимки.");
                     }
                 } else {
-                    broadcastMessageToClient(this, "Неверный логин или пароль.");
+                    broadcastMessageToClient(this, "private:Неверный логин или пароль.");
                 }
             }
             case "logout" -> {
-                logger.info("Значение в user в case logout: {}", Arrays.toString(user));
+                logger.info("Значение в user в case logout: {}", Arrays.toString(requestFromUser));
                 clientRepository.updateEntity(this.client);
                 removeClient();
                 if(!this.client.getStatus().equals("Невидимка")){
-                    broadcastMessageToClients(clients, "Пользователь" + this.client.getName() + " покинул чат.");
+                    broadcastMessageToClients(clients, "global:Пользователь " + this.client.getName() + " покинул чат.");
                 }
-                closeEverything(bufferedWriter, bufferedReader);
+                closeEverything(socket, bufferedWriter, bufferedReader, sessionFactory);
             }
             case "global" -> {
-                GlobalChat globalChat = new GlobalChat();
-                globalChat.setClientId(Long.valueOf(user[1]));
-                globalChat.setMessages(List.of(user[2]));
-                broadcastMessageToClient(this, user[2]);
-                if(!this.getStatus().equals("Невидимка")){
-                    broadcastMessageToClients(clients, user[2]);
+                logger.info("Получено сообщение от клиента с тегом: {}, текст: {}", requestFromUser[0], requestFromUser[2]);
+
+                logger.info("Объект client до получения из БД: {}", client);
+                client = clientRepository.getEntityById(Long.valueOf(requestFromUser[1]));
+                logger.info("Объект client после получения из БД: {}", client);
+                List<GlobalChat> globalChat = client.getGlobalChats();
+
+                if(globalChat != null){
+                    GlobalMessage globalMessage = new GlobalMessage();
+
+                    String messageForClients = requestFromUser[0] + ":" + client.getName() + ": " + requestFromUser[2] + "\n";
+                    for(GlobalChat chat : globalChat){
+                        globalMessage.setGlobalChat(chat);
+                        globalMessage.setMessage(requestFromUser[2]);
+                        broadcastMessageToClients(clients, messageForClients);
+                    }
+                    // Вот так вот просто была исправлена ошибка: "The given object has a null identifier: server.model.GlobalMessage"
+                    // Оказывается надо каждый раз сохранять новый объект globalMessage потому что это одно сообщение.
+                    globalMessageRepository.saveEntity(globalMessage);
                 }
-                globalChatRepository.updateEntity(globalChat);
             }
             case "private" -> {
-                PrivateChat privateChat = new PrivateChat();
-                privateChat.setClientId(Long.valueOf(user[1]));
-                privateChat.setMessages(List.of(user[2]));
-                privateChatRepository.updateEntity(privateChat);
+                logger.info("Вошли в блок private.");
+                // Получаем объект PrivateChat по clientId
+                client = clientRepository.getEntityById(Long.valueOf(requestFromUser[1]));
+                PrivateChat privateChat = privateChatRepository.getChatByClient(client);
+                logger.info("Получаем объект privateChat из БД: {}", privateChat);
+                Client client = clientRepository.getEntityById(Long.valueOf(requestFromUser[1]));
+                logger.info("Получаем клиента из БД: {}", client);
+
+                if (privateChat != null) {
+                    // Создаем новое сообщение
+                    PrivateMessage newMessage = new PrivateMessage();
+                    newMessage.setPrivateChat(privateChat);  // Устанавливаем связь с чатом
+                    newMessage.setMessage(requestFromUser[2]);   // Устанавливаем текст сообщения
+                    // Необходимо доработать систему приватных сообщений, потому что отправить  могу только если клиент в сети и если он не невидимка
+                    // Так же данный метод отправляет только ClientManager, а не Client, так что тут надо подумать.
+                    //broadcastMessageToClient(client, user[3]);
+
+                    // Сохраняем новое сообщение
+                    privateMessageRepository.saveEntity(newMessage);
+                } else {
+                    // Обработка случая, если чат не найден
+                    System.out.println("Чат не найден.");
+                }
+            }
+            case "status" -> {
+                Client client = clientRepository.getEntityById(Long.valueOf(requestFromUser[1]));
+                client.setStatus(requestFromUser[2]);
+                clientRepository.updateEntity(client);
             }
         }
     }

@@ -27,9 +27,8 @@ public class Server {
                 ClientManager clientManager = new ClientManager(socket);
                 logger.info("Новый клиент есть? {}", clientManager);
                 System.out.println("Подключен новый клиент!");
-                Thread thread =  new Thread(clientManager);
+                Thread thread = new Thread(clientManager);
                 thread.start();
-
             }catch (IOException e){
                 catchErrors(e, "runServer");
                 closeSocket();

@@ -86,6 +86,7 @@ public class ClientRepositoryImpl implements ClientRepository {
         }
     }
 
+    @Override
     public Client getEntityByLoginAndPassword(String login, String password){
         try{
             Transaction transaction = session.beginTransaction();
@@ -93,6 +94,7 @@ public class ClientRepositoryImpl implements ClientRepository {
             Query<Client> query = session.createQuery(hql, Client.class);
             query.setParameter("login", login);
             query.setParameter("password", password);
+            logger.info("Данные о логине: {}, пароль: {}", login, password);
             Client client = query.getSingleResult();
             transaction.commit();
             return client;

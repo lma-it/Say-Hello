@@ -28,5 +28,10 @@ public class GlobalMessage {
         this.globalChat = globalChat;
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        return "message: " + message;
+    }
 }
 

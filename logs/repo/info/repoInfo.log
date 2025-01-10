@@ -1,0 +1,4 @@
+2025-01-11 00:04:00 [Thread-1] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: Michael1, пароль: 1234
+2025-01-11 00:04:00 [Thread-1] INFO  s.r.impl.GlobalChatRepositoryImpl - Информация о globalChat: Id: 1, Список сообщений: [server.model.GlobalMessage@6673b33b, server.model.GlobalMessage@d8734f7, server.model.GlobalMessage@564034a7]
+2025-01-11 00:06:00 [Thread-1] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: Michael1, пароль: 1234
+2025-01-11 00:06:01 [Thread-1] INFO  s.r.impl.GlobalChatRepositoryImpl - Информация о globalChat: Id: 1, Список сообщений: [message: Hello, message: I'm fine, how are you?, message: U too., message: Hello]

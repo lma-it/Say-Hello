@@ -29,4 +29,9 @@ public class Client {
     public String getStatus(){
         return this.status.getStatus();
     }
+
+    @Override
+    public String toString() {
+        return String.format("Логин: %s, Имя: %s, Статус: %s.", this.login, this.name, this.status);
+    }
 }

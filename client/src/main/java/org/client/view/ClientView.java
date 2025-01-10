@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.client.abstraction.GUI;
 import org.client.client.Client;
 import org.client.util.Status;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
@@ -20,7 +19,7 @@ import java.util.Random;
 public class ClientView extends GUI {
     private final Logger logger = (Logger) LoggerFactory.getLogger(ClientView.class);
     private final Socket socket;
-    private JComboBox<String> status;
+    private JComboBox<String> statusBox;
     private JTextField login;
     private JTextField password;
     private String[] logins;
@@ -30,17 +29,24 @@ public class ClientView extends GUI {
     private JTextField newName;
     private JTextField newPassword;
     private JButton createNewAccount;
+    private JTabbedPane pane;
 
     private JButton btnLogin;
     private JButton btnNewClient;
+    private JButton sendMessages;
+
 
     private JButton btnLogout;
-    private JTextArea messageHistory;
+    private JTextArea globalMessageHistory;
+    private JTextArea privateMessageHistory;
     private JTextField messageField;
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
-    private final Client client = new Client();
-    private final JDialog authorization = createRegistrationPanel();
+    private Client client = new Client();
+    private JDialog authorization;
+
+    private StringBuilder globalChat;
+    private StringBuilder privateChat;
 
     // flags for sendMessage
     private boolean isAuthorized = false;
@@ -58,6 +64,8 @@ public class ClientView extends GUI {
         try{
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            globalChat = new StringBuilder();
+            privateChat = new StringBuilder();
         }catch (IOException e){
             catchErrors(e, "Constructor of ClientView");
         }
@@ -81,9 +89,9 @@ public class ClientView extends GUI {
 
         JTextField ipAddress = new JTextField(Arrays.toString(socket.getInetAddress().getAddress()).replace("[", "").replace("]",""));
         JTextField port = new JTextField(socket.getLocalPort());
-        status = new JComboBox<>(statuses);
-        status.setActionCommand(Status.OFFLINE.getStatus());
-        status.setBackground(Color.RED);
+        statusBox = new JComboBox<>(statuses);
+        statusBox.setActionCommand(Status.OFFLINE.getStatus());
+        statusBox.setBackground(Color.RED);
         login = new JTextField();
         password = new JTextField();
         btnLogin = new JButton("Войти");
@@ -95,7 +103,7 @@ public class ClientView extends GUI {
                 .setLayout(new GridBagLayout())
                 .addComponent(ipAddress, 0, 0, 0.3f, 1)
                 .addComponent(port, 1, 0, 0.3f, 1)
-                .addComponent(status, l -> setStatus(), 2, 0, 0.3f, 1)
+                .addComponent(statusBox, l -> updateStatus(client), 2, 0, 0.3f, 1)
                 .addComponent(login, 0,1, 0.3f, 1)
                 .addComponent(password, 1,1, 0.3f, 1)
                 .addComponent(btnLogin, _ -> logIn(), 2,1, 0.3f, 1)
@@ -106,39 +114,50 @@ public class ClientView extends GUI {
 
 
     private String setStatus(){
-        String state = (String) status.getSelectedItem();
+        String state = (String) statusBox.getSelectedItem();
         logger.info("Статус на данный момент: {}", state);
         switch (state){
             case "В сети" -> {
-                status.setBackground(Color.GREEN);
-                status.setActionCommand("В сети");
-                logger.info("Статус в поле В сети: {}", status.getActionCommand());
+                statusBox.setBackground(Color.GREEN);
+                statusBox.setActionCommand("В сети");
+                logger.info("Статус в поле В сети: {}", statusBox.getActionCommand());
             }
             case "Занят" -> {
-                status.setBackground(Color.YELLOW);
-                status.setActionCommand("Занят");
-                logger.info("Статус в поле Занят: {}", status.getActionCommand());
+                statusBox.setBackground(Color.YELLOW);
+                statusBox.setActionCommand("Занят");
+                logger.info("Статус в поле Занят: {}", statusBox.getActionCommand());
             }
             case "Невидимка" -> {
-                status.setBackground(Color.GRAY);
-                status.setActionCommand("Невидимка");
-                logger.info("Статус в поле Невидимка: {}", status.getActionCommand());
+                statusBox.setBackground(Color.GRAY);
+                statusBox.setActionCommand("Невидимка");
+                logger.info("Статус в поле Невидимка: {}", statusBox.getActionCommand());
             }
             case "Не в сети" -> {
-                status.setBackground(Color.RED);
-                status.setActionCommand("Не в сети");
-                logger.info("Статус в поле Не в сети: {}", status.getActionCommand());
+                statusBox.setBackground(Color.RED);
+                statusBox.setActionCommand("Не в сети");
+                logger.info("Статус в поле Не в сети: {}", statusBox.getActionCommand());
             }
         }
-        return status.getSelectedItem().toString();
+        isStatusChanged = true;
+        return "status:" + this.client.getId() + ":" + statusBox.getActionCommand();
+    }
+
+    private void updateStatus(Client client){
+        statusBox.setActionCommand(client.getStatus());
+        setStatus();
     }
 
     @Override
     public Component createBodyOfWindow() {
         GUIBuilder builder = new GUIBuilder();
-        messageHistory = new JTextArea();
+        pane = new JTabbedPane();
+        globalMessageHistory = new JTextArea();
+        pane.add("Общий чат", globalMessageHistory);
+        pane.setSelectedComponent(globalMessageHistory);
+        privateMessageHistory = new JTextArea();
+        pane.add("Личные сообщения", privateMessageHistory);
         return builder
-                .addComponent(messageHistory, 0, 0, 1.0f, 1.0f)
+                .addComponent(pane, 0, 0, 1.0f, 1.0f)
                 .build();
     }
 
@@ -213,12 +232,13 @@ public class ClientView extends GUI {
     @Override
     public Component createFooterOfWindow() {
         messageField = new JTextField();
+        sendMessages = new JButton("Send");
         GUIBuilder builder = new GUIBuilder();
 
         return builder
                 .setLayout(new GridBagLayout())
                 .addComponent(messageField, _ -> writeMessage(), 0, 0, 0.8f, 1)
-                .addComponent(new JButton("Send"), _ -> writeMessage(), 1, 0, 0.2f, 1)
+                .addComponent(sendMessages, _ -> writeMessage(), 1, 0, 0.2f, 1)
                 .build();
     }
 
@@ -227,18 +247,15 @@ public class ClientView extends GUI {
 
     private String authorization(){
         authorization.setVisible(false);
-        String[] newClient = new String[9];
-        newClient[0] = "authorization";
-        newClient[1] = ":";
-        newClient[2] = newLogin.getText();
-        newClient[3] = ":";
-        newClient[4] = newName.getText();
-        newClient[5] = ":";
-        newClient[6] = newPassword.getText();
-        newClient[7] = ":";
-        newClient[8] = client.getStatus();
-        logger.info("Лог из метода authorization. Информация от новом пользователе: {}", Arrays.toString(newClient));
-        return Arrays.toString(newClient);
+        StringBuilder authorization = new StringBuilder("authorization").append(":");
+        authorization.append(newLogin.getText()).append(":");
+        authorization.append(newName.getText()).append(":");
+        authorization.append(newPassword.getText()).append(":");
+        authorization.append(client.getStatus());
+        logger.info("Лог из метода authorization. Информация от новом пользователе: {}", authorization);
+        client = new Client(newLogin.getText(), newName.getText(), newPassword.getText());
+        isAuthorized = true;
+        return authorization.toString();
     }
 
     private String logIn() {
@@ -246,14 +263,21 @@ public class ClientView extends GUI {
                 .append(login.getText())
                         .append(":")
                                 .append(password.getText());
-        logger.info("Считаны данные из поля login: {}", login.getText());
-        logger.info("Считаны данные из поля password: {}", password.getText());
-        logger.info("Попытка отправить данные на сервер.");
         logger.info("Данные успешно отправлены: {}", logIn);
+        btnLogin.setVisible(false);
+        btnLogout.setVisible(true);
+        isTryToLogin = true;
         return logIn.toString();
     }
 
     private String logOut() {
+        btnLogout.setVisible(false);
+        btnLogin.setVisible(true);
+        logger.info("Статус клиента до обновления: {}", client.getStatus());
+        client.setStatus(Status.OFFLINE);
+        logger.info("Статус клиента после обновления: {}", client.getStatus());
+        updateStatus(client);
+        isTryToLogout = true;
         return "logout";
     }
 
@@ -275,15 +299,14 @@ public class ClientView extends GUI {
     }
 
     void createNewAccount(){
+        isGetLogins = true;
+        authorization = createRegistrationPanel();
         logger.info("Вошли в метод создания нового аккаунта.");
         logger.info("Текущая видимость authorization:{}", authorization.isVisible());
         authorization.setLocationRelativeTo(this);
         authorization.setVisible(true);
         logger.info("Выставляем видимость поля authorization в значение true: {}", authorization.isVisible());
 
-        isGetLogins = true;
-        logger.info("Данные отправлены, получение logins.");
-        logger.info("Данные строки login: {}", login.getText());
 
         if(isCorrect(logins) && newName != null && !newName.getText().equals("Введите имя.") && newPassword != null && !newPassword.getText().equals("Введите пароль.")){
             logger.info("В случае если logins != null, то состояние активности кнопки createNewAccount: {}", createNewAccount.isEnabled());
@@ -335,14 +358,22 @@ public class ClientView extends GUI {
     }
 
     private String writeMessage(){
-        String message = messageField.getText();
-        if(!message.isEmpty()){
-            messageField.setText("");
-            isMsgWrited = true;
-            return message;
+        StringBuilder message = new StringBuilder();
+        if(pane.getSelectedIndex() == 0){
+            message.append("global").append(":");
+            message.append(this.client.getId()).append(":");
+            message.append(messageField.getText()).append("\n");
+            logger.info("Отправка сообщения на сервер с тегом global: {}", message);
+        }else{
+            message.append("private").append(":");
+            message.append(this.client.getId()).append(":");
+            message.append(messageField.getText()).append("\n");
+            logger.info("Отправка сообщения на сервер с тегом private: {}", message);
         }
-        return message;
+        isMsgWrited = true;
+        return message.toString();
     }
+
 
     public void sendMessage(){
         try{
@@ -373,6 +404,7 @@ public class ClientView extends GUI {
                 if(isMsgWrited){
                     message = writeMessage();
                     isMsgWrited = false;
+                    messageField.setText("");
                 }
 
                 if(!message.isEmpty()){
@@ -384,22 +416,62 @@ public class ClientView extends GUI {
         }catch (IOException e){catchErrors(e, "sendMessage");
             closeEverything(socket, bufferedWriter, bufferedReader);
         }
+    }
 
+
+
+
+    private void showMessage(String chat, String message){
+        if(chat.equals("global")){
+            globalChat.append(message).append("\n");
+            globalMessageHistory.setText("");
+            globalMessageHistory.setText(globalChat.toString());
+        }else{
+            privateChat.append(message).append("\n");
+            privateMessageHistory.setText("");
+            privateMessageHistory.setText(privateChat.toString());
+        }
     }
 
 
 
 
     private void receiveFromServer(String messageFromServer){
-        String[] message = messageFromServer.split(":");
-        switch (message[0]){
-            case "logins" -> {
-                String allLogins = messageFromServer.replace("logins:", "");
-                logins = allLogins.split(":");
-                logger.info("Все логины из Базы Данных: {}", Arrays.toString(logins));
-            }
+        if(messageFromServer.contains("logins:")){
+            String allLogins = messageFromServer.replace("logins:", "");
+            logins = allLogins.split(":");
+            logger.info("Все логины из Базы Данных: {}", Arrays.toString(logins));
+        } else if (messageFromServer.contains("authorization:")) {
+            String newClient = messageFromServer.replace("authorization:", "");
+            showMessage("global", newClient);
+        } else if(messageFromServer.contains("global:")){
+            String chatType = "global";
+            String message = messageFromServer.replace("global:","");
+            showMessage(chatType, message);
+        } else if(messageFromServer.contains("private:")){
+            String chatType = "private";
+            String message = messageFromServer.replace("private:","");
+            showMessage(chatType, message);
+        } else if(messageFromServer.contains("login:")){
+            String[] clientData = messageFromServer.split(":");
+            Long id = Long.valueOf(clientData[1]);
+            String login = clientData[2];
+            String name = clientData[3];
+            String password = clientData[4];
+            String status = clientData[5];
+            client = new Client(login, name, status);
+            client.setId(id);
+            client.setPassword(password);
+            updateStatus(client);
+            logger.info("Вошел новый клиент: {}", client.toString());
         }
     }
+
+
+
+
+
+
 
 
     private void hideHeaderFields(){

@@ -1,0 +1,10 @@
+2025-01-10 16:36:42 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: login11, Имя: mic, Статус: Не в сети
+2025-01-10 16:53:57 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: login12, Имя: mic2, Статус: Не в сети
+2025-01-10 17:38:00 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: michael, Имя: mic, Статус: Не в сети
+2025-01-10 18:23:38 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: michael1, Имя: mic, Статус: Не в сети
+2025-01-10 20:09:56 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: michael2, Имя: mic, Статус: Не в сети
+2025-01-10 22:30:51 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: michael3, Имя: mic3, Статус: Не в сети
+2025-01-10 22:42:22 [Thread-3] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: michael4, Имя: mic4, Статус: Не в сети
+2025-01-10 23:32:27 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: michael5, Имя: mic5, Статус: Не в сети
+2025-01-10 23:42:59 [Thread-3] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: Michael1, Имя: Michael, Статус: Не в сети
+2025-01-10 23:43:23 [Thread-1] DEBUG server.manager.ClientManager - Сохраняем нового клиента в БД: Логин: Evgen12, Имя: Evgen, Статус: Не в сети

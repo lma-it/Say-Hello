@@ -1,46 +1,24 @@
-2025-01-08 00:00:38 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 10:41:41 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:11:32 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 10:42:06 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:12:59 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 10:42:49 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:13:43 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 10:43:09 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:14:42 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 10:47:31 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:17:58 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 11:45:00 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:19:56 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Access denied for user 'michael'@'localhost' (using password: YES)
-2025-01-08 00:20:01 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 11:46:29 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:20:06 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:26:30 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:29:33 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:31:15 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:32:39 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:39:52 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:41:44 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-08 00:43:52 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
+2025-01-10 11:48:04 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.

@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -18,16 +17,18 @@ public class PrivateChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long privateId;
 
-    @Column(name = "clientId")
-    private Long clientId;
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    private Client client;
 
-    @Column(name = "private_messages")
-    private List<String> messages = new ArrayList<>();
+    @OneToMany(mappedBy = "privateChat")
+    private List<PrivateMessage> messages;
 
-    public PrivateChat(){}
+    public PrivateChat() {}
 
-    public PrivateChat(Long id, List<String> messages){
-        this.clientId = id;
+    public PrivateChat(Client client, List<PrivateMessage> messages) {
+        this.client = client;
         this.messages = messages;
     }
 }
+

@@ -1,112 +1,18 @@
-2025-01-08 00:00:37 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:00:37 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:00:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:00:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://0.0.0.0:3308/chatDB]
-2025-01-08 00:00:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:00:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:00:38 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:11:31 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:11:32 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:11:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:11:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://0.0.0.0:3308/chatDB]
-2025-01-08 00:11:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:11:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:11:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:12:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:12:59 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:12:59 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:12:59 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://0.0.0.0:3308/chatDB]
-2025-01-08 00:12:59 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:12:59 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:12:59 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:13:43 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:13:43 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:13:43 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:13:43 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://0.0.0.0:3308/chatDB]
-2025-01-08 00:13:43 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:13:43 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:13:43 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:14:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:14:42 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:14:42 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:14:42 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:14:42 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:14:42 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:14:42 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:17:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:17:58 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:17:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:17:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:17:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:17:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:17:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:19:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:19:56 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:19:56 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:19:56 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/chatDB]
-2025-01-08 00:19:56 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:19:56 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:19:56 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:20:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:20:01 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:20:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:20:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3307/chatDB]
-2025-01-08 00:20:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:20:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:20:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:20:06 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:20:06 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:20:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:20:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:20:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:20:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:20:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:26:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.14.Final
-2025-01-08 00:26:30 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2025-01-08 00:26:30 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:26:30 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:26:30 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:26:30 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:26:30 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:29:32 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.14.Final
-2025-01-08 00:29:32 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2025-01-08 00:29:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:29:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:29:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:29:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:29:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:31:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.14.Final
-2025-01-08 00:31:15 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2025-01-08 00:31:15 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:31:15 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:31:15 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:31:15 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:31:15 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:32:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:32:39 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:32:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:32:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:32:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:32:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:32:39 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:39:51 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:39:51 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:39:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:39:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:39:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:39:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:39:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:41:43 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:41:44 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:41:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:41:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:41:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:41:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:41:44 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
-2025-01-08 00:43:52 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
-2025-01-08 00:43:52 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2025-01-08 00:43:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2025-01-08 00:43:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
-2025-01-08 00:43:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=false, user=michael}
-2025-01-08 00:43:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
-2025-01-08 00:43:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-01-11 00:03:45 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
+2025-01-11 00:03:45 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-01-11 00:03:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-01-11 00:03:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
+2025-01-11 00:03:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=true, user=root}
+2025-01-11 00:03:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: true
+2025-01-11 00:03:45 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-01-11 00:03:46 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-11 00:04:08 [Thread-1] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3308/chatDB]
+2025-01-11 00:05:53 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.0.0.Alpha7
+2025-01-11 00:05:53 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-01-11 00:05:53 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2025-01-11 00:05:53 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3308/chatDB]
+2025-01-11 00:05:53 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=chat1234, autocommit=true, user=root}
+2025-01-11 00:05:53 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: true
+2025-01-11 00:05:53 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 20 (min=1)
+2025-01-11 00:05:54 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-11 00:06:10 [Thread-1] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3308/chatDB]

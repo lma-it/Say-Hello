@@ -8,6 +8,7 @@
     <include resource="appenders/hibernate-appender.xml"/>
     <include resource="appenders/app-appender.xml"/>
     <include resource="appenders/manager-appender.xml"/>
+    <include resource="appenders/repository-appender.xml"/>
 
 
     <!-- Уровень логирования по умолчанию -->
@@ -19,6 +20,9 @@
         <appender-ref ref="MANAGER-INFO-FILE-ROLLING"/>
         <appender-ref ref="MANAGER-DEBUG-FILE-ROLLING"/>
         <appender-ref ref="MANAGER-ERROR-FILE-ROLLING"/>
+        <appender-ref ref="REPO-INFO-FILE-ROLLING"/>
+        <appender-ref ref="REPO-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="REPO-ERROR-FILE-ROLLING"/>
         <appender-ref ref="FILE-ROLLING"/>
     </root>
 
@@ -45,9 +49,28 @@
     </logger>
 
     <logger name="server.repository.impl.ClientRepositoryImpl" level="DEBUG" additivity="false">
-        <appender-ref ref="HIBERNATE-INFO-FILE-ROLLING"/>
-        <appender-ref ref="HIBERNATE-DEBUG-FILE-ROLLING"/>
-        <appender-ref ref="HIBERNATE-ERROR-FILE-ROLLING"/>
+        <appender-ref ref="REPO-INFO-FILE-ROLLING"/>
+        <appender-ref ref="REPO-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="REPO-ERROR-FILE-ROLLING"/>
+    </logger>
+
+
+    <logger name="server.repository.impl.GlobalChatRepositoryImpl" level="DEBUG" additivity="false">
+        <appender-ref ref="REPO-INFO-FILE-ROLLING"/>
+        <appender-ref ref="REPO-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="REPO-ERROR-FILE-ROLLING"/>
+    </logger>
+
+    <logger name="server.repository.impl.PrivateChatRepositoryImpl" level="DEBUG" additivity="false">
+        <appender-ref ref="REPO-INFO-FILE-ROLLING"/>
+        <appender-ref ref="REPO-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="REPO-ERROR-FILE-ROLLING"/>
+    </logger>
+
+    <logger name="server.repository.impl.GlobalMessageRepositoryImpl" level="DEBUG" additivity="false">
+        <appender-ref ref="REPO-INFO-FILE-ROLLING"/>
+        <appender-ref ref="REPO-DEBUG-FILE-ROLLING"/>
+        <appender-ref ref="REPO-ERROR-FILE-ROLLING"/>
     </logger>
 
 

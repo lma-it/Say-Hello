@@ -1,3 +1,38 @@
-2025-01-08 00:39:51 [main] INFO  server.Server - Данные о сокете: isConnected: true, Порт: 36574
-2025-01-08 00:41:43 [main] INFO  server.Server - Данные о сокете: isConnected: true, Порт: 45620
-2025-01-08 00:43:52 [main] INFO  server.Server - Данные о сокете: isConnected: true, Порт: 39374
+2025-01-11 00:03:45 [main] INFO  server.Server - Данные о сокете: isConnected: true, Порт: 59004
+2025-01-11 00:03:46 [main] INFO  server.manager.ClientManager - Состояние sessionFactory: org.hibernate.internal.SessionFactoryImpl@7a45d714
+2025-01-11 00:03:46 [main] INFO  server.manager.ClientManager - Состояние session: SessionStatistics[entity count=0,collection count=0]
+2025-01-11 00:03:46 [main] INFO  server.Server - Новый клиент есть? ClientManager{local port=1500}
+2025-01-11 00:04:00 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: login:Michael1:1234
+2025-01-11 00:04:00 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [login, Michael1, 1234]
+2025-01-11 00:04:00 [Thread-1] INFO  server.manager.ClientManager - Значение в user в case login: [login, Michael1, 1234]
+2025-01-11 00:04:00 [Thread-1] INFO  server.manager.ClientManager - Клиенты в списке clients: [ClientManager{local port=1500}]
+2025-01-11 00:04:00 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: status:1:В сети
+2025-01-11 00:04:00 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [status, 1, В сети]
+2025-01-11 00:04:04 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: global:1:Hello
+2025-01-11 00:04:04 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [global, 1, Hello]
+2025-01-11 00:04:04 [Thread-1] INFO  server.manager.ClientManager - Получено сообщение от клиента с тегом: global, текст: Hello
+2025-01-11 00:04:04 [Thread-1] INFO  server.manager.ClientManager - Объект client до получения из БД: Логин: Michael1, Имя: Michael, Статус: В сети
+2025-01-11 00:04:04 [Thread-1] INFO  server.manager.ClientManager - Объект client после получения из БД: Логин: Michael1, Имя: Michael, Статус: В сети
+2025-01-11 00:04:04 [Thread-1] INFO  server.manager.ClientManager - Данные о user: []
+2025-01-11 00:04:08 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: logout
+2025-01-11 00:04:08 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [logout]
+2025-01-11 00:04:08 [Thread-1] INFO  server.manager.ClientManager - Значение в user в case logout: [logout]
+2025-01-11 00:05:53 [main] INFO  server.Server - Данные о сокете: isConnected: true, Порт: 54510
+2025-01-11 00:05:54 [main] INFO  server.manager.ClientManager - Состояние sessionFactory: org.hibernate.internal.SessionFactoryImpl@204abeff
+2025-01-11 00:05:54 [main] INFO  server.manager.ClientManager - Состояние session: SessionStatistics[entity count=0,collection count=0]
+2025-01-11 00:05:54 [main] INFO  server.Server - Новый клиент есть? ClientManager{local port=1500}
+2025-01-11 00:06:00 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: login:Michael1:1234
+2025-01-11 00:06:00 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [login, Michael1, 1234]
+2025-01-11 00:06:00 [Thread-1] INFO  server.manager.ClientManager - Значение в user в case login: [login, Michael1, 1234]
+2025-01-11 00:06:00 [Thread-1] INFO  server.manager.ClientManager - Клиенты в списке clients: [ClientManager{local port=1500}]
+2025-01-11 00:06:01 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: status:1:В сети
+2025-01-11 00:06:01 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [status, 1, В сети]
+2025-01-11 00:06:08 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: global:1:How are you?
+2025-01-11 00:06:08 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [global, 1, How are you?]
+2025-01-11 00:06:08 [Thread-1] INFO  server.manager.ClientManager - Получено сообщение от клиента с тегом: global, текст: How are you?
+2025-01-11 00:06:08 [Thread-1] INFO  server.manager.ClientManager - Объект client до получения из БД: Логин: Michael1, Имя: Michael, Статус: В сети
+2025-01-11 00:06:08 [Thread-1] INFO  server.manager.ClientManager - Объект client после получения из БД: Логин: Michael1, Имя: Michael, Статус: В сети
+2025-01-11 00:06:08 [Thread-1] INFO  server.manager.ClientManager - Данные о user: []
+2025-01-11 00:06:10 [Thread-1] INFO  server.manager.ClientManager - Лог из метода run(). Содержание messageFromClient: logout
+2025-01-11 00:06:10 [Thread-1] INFO  server.manager.ClientManager - Данные о user: [logout]
+2025-01-11 00:06:10 [Thread-1] INFO  server.manager.ClientManager - Значение в user в case logout: [logout]
