@@ -5,13 +5,16 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3308/chatDB</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">chat1234</property>
+<!--        <property name="hibernate.connection.url">jdbc:mysql://localhost:3308/chatDB</property>-->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://mysql-190abd9f-databaseforchat.i.aivencloud.com:18398/chatDB?useSSL=true&amp;requireSSL=false
+        </property>
+        <property name="hibernate.connection.username">avnadmin</property>
+        <property name="hibernate.connection.password">AVNS_0L3HHEkqts1D6BNB9AJ</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">false</property>
         <property name="hibernate.show_sql">false</property>
-        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
         <property name="hibernate.use_sql_comments">false</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.cache.use_second_level_cache">false</property>
@@ -19,9 +22,9 @@
         <property name="hibernate.connection.autocommit">true</property>
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">20</property>
-        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.timeout">10</property>
         <property name="hibernate.c3p0.max_statements">50</property>
-        <property name="hibernate.c3p0.idle_test_period">300</property>
+        <property name="hibernate.c3p0.idle_test_period">30</property>
         <mapping class="server.model.Client"/>
         <mapping class="server.model.GlobalChat"/>
         <mapping class="server.model.PrivateChat"/>

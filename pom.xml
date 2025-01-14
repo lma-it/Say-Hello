@@ -12,6 +12,7 @@
         <module>server</module>
         <module>client</module>
         <module>repository</module>
+        <module>request</module>
     </modules>
 
     <properties>

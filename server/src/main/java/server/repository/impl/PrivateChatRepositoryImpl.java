@@ -29,7 +29,7 @@ public class PrivateChatRepositoryImpl implements PrivateChatRepository {
             session.save(entity);
             transaction.commit();
         }catch (HibernateException e){
-            System.out.println(e.getMessage());
+            catchErrors(e, "PrivateChatRepositoryImpl.saveEntity");;
         }
     }
 
@@ -40,7 +40,7 @@ public class PrivateChatRepositoryImpl implements PrivateChatRepository {
             session.update(entity);
             transaction.commit();
         }catch (HibernateException e){
-            System.out.println(e.getMessage());
+            catchErrors(e, "PrivateChatRepositoryImpl.updateEntity");
         }
     }
 
@@ -48,11 +48,11 @@ public class PrivateChatRepositoryImpl implements PrivateChatRepository {
     public void deleteEntity(PrivateChat entity) {
         try{
             Transaction transaction = session.beginTransaction();
-            PrivateChat privateChat = getEntityById(entity.getClient().getClientId());
+            PrivateChat privateChat = getEntityById(entity.getPrivateId());
             session.delete(privateChat);
             transaction.commit();
         }catch (HibernateException e){
-            System.out.println(e.getMessage());
+            catchErrors(e, "PrivateChatRepositoryImpl.deleteEntity");
         }
     }
 
@@ -67,7 +67,7 @@ public class PrivateChatRepositoryImpl implements PrivateChatRepository {
             transaction.commit();
             return privateChat;
         }catch (HibernateException e){
-            System.out.println(e.getMessage());
+            catchErrors(e, "PrivateChatRepositoryImpl.getEntityById");
             return null;
         }
     }

@@ -18,17 +18,12 @@ public class GlobalChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long globalId;
 
-    @ManyToOne
-    @JoinColumn(name = "clientId")
-    private Client client;
-
     @OneToMany(mappedBy = "globalChat")
     private List<GlobalMessage> messages;
 
     public GlobalChat() {}
 
-    public GlobalChat(Client client, List<GlobalMessage> messages) {
-        this.client = client;
+    public GlobalChat(List<GlobalMessage> messages) {
         this.messages = messages;
     }
 

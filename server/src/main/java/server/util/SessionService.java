@@ -8,11 +8,11 @@ import org.hibernate.cfg.Configuration;
 
 public class SessionService {
 
-    public static synchronized SessionFactory getSessionFactory(Logger logger){
+    public static synchronized SessionFactory getSessionFactory(Logger logger, String clazz){
         Configuration configuration = new Configuration();
         configuration.configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();
-        logger.info("Состояние sessionFactory: {}", sessionFactory);
+        logger.info("Состояние sessionFactory: {} из класса: {}", sessionFactory, clazz);
         return sessionFactory;
     }
 

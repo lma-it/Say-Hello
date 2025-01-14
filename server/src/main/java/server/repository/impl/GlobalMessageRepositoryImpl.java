@@ -10,6 +10,8 @@ import server.model.GlobalChat;
 import server.model.GlobalMessage;
 import server.repository.GlobalMessageRepository;
 
+import java.util.List;
+
 public class GlobalMessageRepositoryImpl implements GlobalMessageRepository {
     private final Session session;
     private Transaction transaction;
@@ -83,5 +85,21 @@ public class GlobalMessageRepositoryImpl implements GlobalMessageRepository {
             sb.append(element).append("\n");
         }
         logger.info("ERROR: возникла в методе {}. Причина: {}\nStackTrace: {}", method, e.getMessage(), sb);
+    }
+
+    @Override
+    public List<GlobalMessage> getAllMessages() {
+        try{
+            String hql = "FROM GlobalMessage";
+            transaction = session.beginTransaction();
+            Query<GlobalMessage> query = session.createQuery(hql, GlobalMessage.class);
+            List<GlobalMessage> messages = query.getResultList();
+            transaction.commit();
+            return messages;
+        }catch (HibernateException e){
+            catchErrors(e, "GlobalMessageRepositoryImpl.getAllMessages");
+            transaction.rollback();
+            return null;
+        }
     }
 }

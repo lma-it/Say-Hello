@@ -17,8 +17,7 @@ public class PrivateChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long privateId;
 
-    @ManyToOne
-    @JoinColumn(name = "clientId")
+    @OneToOne(mappedBy = "privateChat")
     private Client client;
 
     @OneToMany(mappedBy = "privateChat")
@@ -30,5 +29,7 @@ public class PrivateChat {
         this.client = client;
         this.messages = messages;
     }
+
+
 }
 

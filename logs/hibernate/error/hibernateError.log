@@ -1,24 +1,8 @@
-2025-01-10 10:41:41 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 10:42:06 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 10:42:49 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 10:43:09 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 10:47:31 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 11:45:00 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 11:46:29 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-2025-01-10 11:48:04 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2025-01-14 15:44:20 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Unsupported protocol version: 11. Likely connecting to an X Protocol port.
+2025-01-14 15:49:51 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Unsupported protocol version: 11. Likely connecting to an X Protocol port.
+2025-01-14 15:51:55 [Thread-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Table 'defaultdb.blocked_clients' doesn't exist
+2025-01-14 15:52:25 [Thread-6] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Table 'defaultdb.blocked_clients' doesn't exist
+2025-01-14 15:52:39 [Thread-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Table 'defaultdb.blocked_clients' doesn't exist
+2025-01-14 16:16:56 [Thread-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Table 'chatDB.blocked_clients' doesn't exist
+2025-01-14 16:17:20 [Thread-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Table 'chatDB.blocked_clients' doesn't exist
+2025-01-14 16:22:12 [Thread-6] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Table 'chatDB.blocked_clients' doesn't exist

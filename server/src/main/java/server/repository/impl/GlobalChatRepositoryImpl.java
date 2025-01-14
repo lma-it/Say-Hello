@@ -6,20 +6,20 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.slf4j.LoggerFactory;
-import server.model.Client;
 import server.model.GlobalChat;
 import server.repository.GlobalChatRepository;
+import server.util.SessionService;
+
+import java.util.List;
 
 
 public class GlobalChatRepositoryImpl implements GlobalChatRepository {
     private final Logger logger = (Logger) LoggerFactory.getLogger(GlobalChatRepositoryImpl.class);
-
     private final Session session;
 
     public GlobalChatRepositoryImpl(Session session){
         this.session = session;
     }
-
 
 
     @Override
@@ -48,8 +48,7 @@ public class GlobalChatRepositoryImpl implements GlobalChatRepository {
     public void deleteEntity(GlobalChat entity) {
         try{
             Transaction transaction = session.beginTransaction();
-            GlobalChat globalChat = getEntityById(entity.getClient().getClientId());
-            session.delete(globalChat);
+            session.delete(entity);
             transaction.commit();
         }catch (HibernateException e){
             System.out.println(e.getMessage());
@@ -72,22 +71,22 @@ public class GlobalChatRepositoryImpl implements GlobalChatRepository {
         }
     }
 
+
     @Override
-    public GlobalChat getChatByClient(Client client) {
+    public List<GlobalChat> getGlobalChat() {
         try{
+            String hql = "FROM GlobalChat";
             Transaction transaction = session.beginTransaction();
-            String hql = "FROM GlobalChat g WHERE g.client = :client";
             Query<GlobalChat> query = session.createQuery(hql, GlobalChat.class);
-            query.setParameter("client", client);
-            GlobalChat globalChat = query.getSingleResult();
-            logger.info("Информация о globalChat: {}", globalChat.toString());
+            List<GlobalChat> globalChat = query.getResultList();
             transaction.commit();
             return globalChat;
         }catch (HibernateException e){
-            catchErrors(e, "GlobalChatRepositoryImpl.getChatByClient");
+            catchErrors(e, "GlobalChatRepositoryImpl.getGlobalChat");
             return null;
         }
     }
+
 
     private void catchErrors(Exception e, String method){
         StringBuilder sb = new StringBuilder();

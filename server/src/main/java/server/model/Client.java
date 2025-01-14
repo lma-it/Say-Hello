@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -28,19 +27,22 @@ public class Client {
     @Column(name = "status")
     private String status;
 
-    @OneToMany(mappedBy = "client")
-    private List<GlobalChat> globalChats;
+    @ManyToOne
+    @JoinColumn(name = "globalId")
+    private GlobalChat globalChat;
 
-    @OneToMany(mappedBy = "client")
-    private List<PrivateChat> privateChats;
+    @OneToOne
+    @JoinColumn(name = "privateId")
+    private PrivateChat privateChat;
 
     public Client() {}
 
-    public Client(String login, String name, String password, String status) {
+    public Client(String login, String name, String password, String status, GlobalChat globalChat) {
         this.login = login;
         this.name = name;
         this.password = password;
         this.status = status;
+        this.globalChat = globalChat;
     }
 
 

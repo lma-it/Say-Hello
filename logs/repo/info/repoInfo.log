@@ -1,4 +1,83 @@
-2025-01-11 00:04:00 [Thread-1] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: Michael1, пароль: 1234
-2025-01-11 00:04:00 [Thread-1] INFO  s.r.impl.GlobalChatRepositoryImpl - Информация о globalChat: Id: 1, Список сообщений: [server.model.GlobalMessage@6673b33b, server.model.GlobalMessage@d8734f7, server.model.GlobalMessage@564034a7]
-2025-01-11 00:06:00 [Thread-1] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: Michael1, пароль: 1234
-2025-01-11 00:06:01 [Thread-1] INFO  s.r.impl.GlobalChatRepositoryImpl - Информация о globalChat: Id: 1, Список сообщений: [message: Hello, message: I'm fine, how are you?, message: U too., message: Hello]
+2025-01-14 13:21:16 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:21:23 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
+2025-01-14 13:21:28 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:25:58 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:26:03 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:26:24 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
+2025-01-14 13:29:24 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:29:29 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:37:06 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:37:10 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:39:22 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:39:31 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:45:24 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:45:32 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:48:04 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:48:11 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:52:42 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:52:51 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 13:57:04 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 13:57:09 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 14:02:25 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 14:02:31 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 14:06:21 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 14:06:26 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 14:11:08 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 14:11:14 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 14:24:30 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 14:24:35 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 14:25:44 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
+2025-01-14 14:29:26 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 14:29:33 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 15:51:37 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Выполняется запрос: FROM Client
+2025-01-14 15:51:37 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Получен список клиентов: []
+2025-01-14 15:51:54 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Сохранение сущности: Логин: michael, Имя: Михаил, Статус: Не в сети
+2025-01-14 15:51:55 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 15:52:08 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Выполняется запрос: FROM Client
+2025-01-14 15:52:08 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Получен список клиентов: [Логин: michael, Имя: Михаил, Статус: Не в сети]
+2025-01-14 15:52:24 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Сохранение сущности: Логин: evgen11, Имя: Евгений, Статус: Не в сети
+2025-01-14 15:52:25 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 15:52:25 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Выполняется запрос: FROM Client
+2025-01-14 15:52:26 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Получен список клиентов: [Логин: michael, Имя: Михаил, Статус: Не в сети, Логин: evgen11, Имя: Евгений, Статус: Не в сети]
+2025-01-14 15:52:38 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Сохранение сущности: Логин: dmitriy, Имя: Дмитрий, Статус: Не в сети
+2025-01-14 15:52:39 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
+2025-01-14 16:16:46 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Выполняется запрос: FROM Client
+2025-01-14 16:16:46 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Получен список клиентов: []
+2025-01-14 16:16:55 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Сохранение сущности: Логин: michael, Имя: Михаил, Статус: Не в сети
+2025-01-14 16:16:56 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 16:17:07 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Выполняется запрос: FROM Client
+2025-01-14 16:17:07 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Получен список клиентов: [Логин: michael, Имя: Михаил, Статус: Не в сети]
+2025-01-14 16:17:20 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Сохранение сущности: Логин: evgen11, Имя: Евгений, Статус: Не в сети
+2025-01-14 16:17:20 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 16:18:30 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 16:18:36 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 16:21:53 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Выполняется запрос: FROM Client
+2025-01-14 16:21:53 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Получен список клиентов: [Логин: michael, Имя: Михаил, Статус: comboBoxChanged, Логин: evgen11, Имя: Евгений, Статус: В сети]
+2025-01-14 16:22:11 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Сохранение сущности: Логин: dmitriy, Имя: Дмитрий, Статус: Не в сети
+2025-01-14 16:22:12 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
+2025-01-14 16:31:45 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 16:31:53 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 16:32:02 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
+2025-01-14 16:58:33 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 16:58:41 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:00:37 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:00:43 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:10:32 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:10:40 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:12:23 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:12:30 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:26:07 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:26:13 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:28:51 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:28:57 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:31:28 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:31:35 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:35:37 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:35:42 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:42:10 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:42:16 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 17:43:42 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 17:43:49 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 18:05:57 [Thread-2] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: michael, пароль: 1234
+2025-01-14 18:06:06 [Thread-4] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: evgen11, пароль: 1234
+2025-01-14 18:06:14 [Thread-6] INFO  s.r.impl.ClientRepositoryImpl - Данные о логине: dmitriy, пароль: 1234
