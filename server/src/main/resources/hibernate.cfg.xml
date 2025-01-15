@@ -5,12 +5,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-<!--        <property name="hibernate.connection.url">jdbc:mysql://localhost:3308/chatDB</property>-->
-        <property name="hibernate.connection.url">
-            jdbc:mysql://mysql-190abd9f-databaseforchat.i.aivencloud.com:18398/chatDB?useSSL=true&amp;requireSSL=false
-        </property>
-        <property name="hibernate.connection.username">avnadmin</property>
-        <property name="hibernate.connection.password">AVNS_0L3HHEkqts1D6BNB9AJ</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3308/chatDB</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">chat1234</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">false</property>
         <property name="hibernate.show_sql">false</property>
